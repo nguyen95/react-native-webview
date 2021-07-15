@@ -59,6 +59,18 @@ declare class WebView<P = {}> extends Component<WebViewProps & P> {
      * Tells this WebView to clear its internal back/forward list.
      */
     clearHistory: () => void;
+
+    /**
+     * (Android only)
+     * Tells this WebView to pause.
+     */
+     pause: () => void;
+
+     /**
+      * (Android only)
+      * Tells this WebView to start.
+      */
+     start: () => void;
 }
 
 export {WebView};

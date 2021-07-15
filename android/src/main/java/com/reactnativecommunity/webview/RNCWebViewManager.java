@@ -133,6 +133,8 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
   public static final int COMMAND_INJECT_JAVASCRIPT = 6;
   public static final int COMMAND_LOAD_URL = 7;
   public static final int COMMAND_FOCUS = 8;
+  public static final int COMMAND_PAUSE = 9;
+  public static final int COMMAND_START = 10;
 
   // android commands
   public static final int COMMAND_CLEAR_FORM_DATA = 1000;
@@ -628,6 +630,8 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
       .put("clearFormData", COMMAND_CLEAR_FORM_DATA)
       .put("clearCache", COMMAND_CLEAR_CACHE)
       .put("clearHistory", COMMAND_CLEAR_HISTORY)
+      .put("pause", COMMAND_PAUSE)
+      .put("start", COMMAND_START)
       .build();
   }
 
@@ -689,6 +693,12 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
         break;
       case COMMAND_CLEAR_HISTORY:
         root.clearHistory();
+        break;
+      case COMMAND_PAUSE:
+        root.onPause();
+        break;
+      case COMMAND_START:
+        root.onResume();
         break;
     }
   }
